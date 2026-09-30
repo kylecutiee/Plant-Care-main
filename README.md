@@ -64,3 +64,4 @@ Plant Care Project is ready for further development.
 This app helps users monitor their plants.
 Users can add information about their plants.
 The app helps users remember when to water their plants.
+Users can check their plant care information anytime.
