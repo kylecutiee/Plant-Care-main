@@ -58,3 +58,4 @@ Join our community of developers creating universal apps.
 ## Plant Care Project
 
 Updated my Plant Care project.
+This project helps users take care of their plants.
