@@ -66,3 +66,4 @@ Users can add information about their plants.
 The app helps users remember when to water their plants.
 Users can check their plant care information anytime.
 The project is designed to make plant care easier.
+Plant Care Project is ready for testing.
