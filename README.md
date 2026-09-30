@@ -62,3 +62,4 @@ This project helps users take care of their plants.
 The app provides useful plant care information.
 Plant Care Project is ready for further development.
 This app helps users monitor their plants.
+Users can add information about their plants.
