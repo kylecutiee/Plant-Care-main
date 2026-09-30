@@ -60,3 +60,4 @@ Join our community of developers creating universal apps.
 Updated my Plant Care project.
 This project helps users take care of their plants.
 The app provides useful plant care information.
+Plant Care Project is ready for further development.
