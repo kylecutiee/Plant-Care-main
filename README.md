@@ -1,69 +1,123 @@
-# Welcome to your Expo app 👋
+# Plant Care - Basic Expo Go Study Project
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This version is intentionally simple for learning React Native.
 
-## Get started
+## Folder structure
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```text
+Plant-Care-Expo-Go-Basic/
+├── App.js
+├── app.json
+├── package.json
+│
+├── components/
+│   ├── Button/
+│   │   └── CustomButton.js
+│   ├── TextInputField/
+│   │   └── TextInputField.js
+│   ├── PlantCard/
+│   │   └── PlantCard.js
+│   └── Header/
+│       └── Header.js
+│
+├── navigation/
+│   └── AppNavigation.js
+│
+├── screens/
+│   ├── Login/
+│   │   └── LoginScreen.js
+│   ├── Home/
+│   │   └── HomeScreen.js
+│   └── Profile/
+│       └── ProfileScreen.js
+│
+└── styles/
+    └── colors.js
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Main concepts
 
-### Other setup steps
+### 1. Components
+Reusable UI is placed in `components/`.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+Example:
 
-## Learn more
+```js
+<CustomButton title="Sign In" onPress={() => navigate("Home")} />
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 2. Basic navigation
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+`navigation/AppNavigation.js` uses React state:
 
-## Join the community
+```js
+const [screen, setScreen] = useState("Login");
 
-Join our community of developers creating universal apps.
+function navigate(screenName) {
+  setScreen(screenName);
+}
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Then:
 
-## Plant Care Project
+```js
+{screen === "Login" && <LoginScreen navigate={navigate} />}
+{screen === "Home" && <HomeScreen navigate={navigate} />}
+{screen === "Profile" && <ProfileScreen navigate={navigate} />}
+```
 
-Updated my Plant Care project.
-This project helps users take care of their plants.
-The app provides useful plant care information.
-Plant Care Project is ready for further development.
-This app helps users monitor their plants.
-Users can add information about their plants.
-The app helps users remember when to water their plants.
-Users can check their plant care information anytime.
-The project is designed to make plant care easier.
-Plant Care Project is ready for testing.
+This is intentionally basic navigation so it is easy to understand.
+
+### 3. Flexbox
+
+React Native uses Flexbox for layouts.
+
+Examples:
+
+```js
+container: {
+  flex: 1,
+  justifyContent: "center",
+}
+```
+
+Horizontal layout:
+
+```js
+statsRow: {
+  flexDirection: "row",
+  justifyContent: "space-between",
+}
+```
+
+### 4. TextInput
+
+The reusable `TextInputField` component uses:
+
+```js
+<TextInput
+  value={email}
+  onChangeText={setEmail}
+/>
+```
+
+### 5. Buttons
+
+The reusable `CustomButton` component uses:
+
+```js
+<TouchableOpacity onPress={onPress}>
+  <Text>{title}</Text>
+</TouchableOpacity>
+```
+
+## Run with Expo Go
+
+```bash
+npm install
+npx expo start
+```
+
+Scan the QR code using Expo Go.
+
+This project has no backend, database, API, or authentication. It is for learning basic React Native concepts.
